@@ -1,14 +1,14 @@
-const API_URL = "http://localhost:5000"
+
 
 export const listEntries = async() => {
-    const response = await fetch (`${API_URL}/api/entry`)
+    const response = await fetch (`/api/entry`)
     return response.json()
 }
 
 export const createEntry = async(entry) => {
     const password = entry.apiKey
     delete entry.apiKey
-    const response = await fetch (`${API_URL}/api/entry`,{
+    const response = await fetch (`/api/entry`,{
         method: "POST",
         headers: {
             'content-type': 'application/json',
@@ -28,7 +28,7 @@ export const createEntry = async(entry) => {
 }
 
 export const deleteEntry = async(id) => {
-    const response = await fetch(`${API_URL}/api/entry/remove/` + id, {
+    const response = await fetch(`/api/entry/remove/` + id, {
         method: "DELETE",
         headers: {
             'content-type': 'application/json'
@@ -41,7 +41,7 @@ export const updateEntry = async(id, data) => {
     console.log(data)
     const password = data.apiKey
     delete data.apiKey
-    const response = await fetch(`${API_URL}/api/entry/update/` + id, {
+    const response = await fetch(`/api/entry/update/` + id, {
         method: "PUT",
         headers: {
             'content-type': 'application/json',
