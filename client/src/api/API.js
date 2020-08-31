@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:1337"
+const API_URL = "http://localhost:4000"
 
 export const listEntries = async() => {
     const response = await fetch (`${API_URL}/api/entry`)
