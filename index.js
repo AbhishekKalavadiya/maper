@@ -9,6 +9,7 @@ const entry = require('./api/entryRoute')
 const path = require("path")
 
 const app = express()
+const port = process.env.PORT || 4000 
 
 mongoose.connect("mongodb+srv://kalu:abhimk7410@maper.usnux.gcp.mongodb.net/Maper?retryWrites=true&w=majority", {
     useNewUrlParser: true, 
@@ -41,7 +42,6 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
-const port = process.env.PORT || 4626 
 app.listen(port, ()=> {
     console.log(`Listining at http://localhost:${port}`)
 })
