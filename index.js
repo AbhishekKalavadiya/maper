@@ -34,14 +34,18 @@ app.use('/api/entry', entry)
 app.use('/api/entry/remove/:id', entry)
 app.use('/api/entry/update/:id', entry)
 
+if (process.env.NODE_ENV === 'production') {
+   
+    app.use(express.static(path.join(__dirname, 'client/build')));
+
+    app.get('*', function(req, res) {
+      res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    });
+  }
+
 app.use(middlewares.notFound)
 app.use(middlewares.errorHandler)
 
-app.use(express.static(path.join(__dirname, "client/build")))
-
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client/build", "index.html"));
-});
 
 app.listen(port, ()=> {
     console.log(`Listining at http://localhost:${port}`)
