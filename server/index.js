@@ -9,7 +9,7 @@ const entry = require('./api/entryRoute')
 
 const app = express()
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect("mongodb+srv://kalu:abhimk7410@maper.usnux.gcp.mongodb.net/Maper?retryWrites=true&w=majority", {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     },(err)=>{
