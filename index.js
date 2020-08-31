@@ -25,7 +25,7 @@ app.use(express.json())
 
 app.get('/', (req, res) => {
     res.json({
-        message:  'You are in server',
+        message:  'You are server',
     })
 })
 
