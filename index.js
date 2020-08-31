@@ -16,7 +16,7 @@ app.use(helmet())
 app.use(cors())
 app.use(express.json())
 
-// app.use('/', express.static(path.join(__dirname, 'client/build')));
+app.use('/', express.static(path.join(__dirname, 'client/build')));
 
 mongoose.connect("mongodb+srv://kalu:abhimk7410@maper.usnux.gcp.mongodb.net/Maper?retryWrites=true&w=majority", {
     useNewUrlParser: true, 
@@ -37,17 +37,11 @@ app.use('/api/entry', entry)
 app.use('/api/entry/remove/:id', entry)
 app.use('/api/entry/update/:id', entry)
    
-
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'))
-    
-    app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')) 
-    })
-  }
+   
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')) 
+})
   
-
-
 app.use(middlewares.notFound)
 app.use(middlewares.errorHandler)
 
