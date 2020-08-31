@@ -1,0 +1,87 @@
+.updateEntry{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 100;
+}
+.updateEntry__form{
+    padding: 20px;
+    border-radius: 30px;
+    color: black;
+    font-weight: 500;
+    position:fixed;
+    background-color: white;
+    width: 80%;
+    height: auto;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    margin-top: 30px;
+}
+
+.updateEntry__form > h3 {
+    display: flex;
+    margin: 20px;
+}
+
+.updateEntry__info{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.updateEntry__info > textarea {
+    margin-bottom: 10px;
+}
+
+.updateEntry__date{
+    margin-top: 10px;
+}
+
+.updateEntry__date > label {
+    margin-right: 5px;
+}
+
+.updateEntry__rating{
+    margin-top: 10px;
+}
+
+.updateEntry__rating > label {
+    margin-right: 5px;
+}
+
+.updateEntry__error{
+    color: red
+}
+
+.updateEntry__button {
+    display: flex;
+    margin: 20px;
+}
+
+.updateEntry__apikey{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.updateEntry__button > button {
+    margin-right: 10px;
+    cursor: pointer;
+    height: 40px;
+    width: 60px;
+}
+
+@media (max-width: 700px){
+    .updateEntry__info > textarea {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .updateEntry__date > label {
+        margin-right: 10px;
+    }
+}

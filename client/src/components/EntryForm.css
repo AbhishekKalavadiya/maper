@@ -1,0 +1,28 @@
+.entryForm {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.entryForm input, .entryForm textarea {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.entryForm label {
+    font-weight: 700;
+}
+
+.entryForm button{
+    cursor: pointer;
+    margin: 10px 0;
+    color: black;
+    text-decoration: none;
+    background-color: lightgreen;
+    /* border-radius: 10px; */
+}
+
+.entryForm__error{
+    color: red;
+}
