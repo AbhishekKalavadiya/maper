@@ -32,13 +32,13 @@ app.get('/', (req, res) => {
 app.use('/api/entry', entry)
 app.use('/api/entry/remove/:id', entry)
 app.use('/api/entry/update/:id', entry)
-app.use(express.static(path.join(__dirname, "client", "build")))
 
 app.use(middlewares.notFound)
 app.use(middlewares.errorHandler)
+app.use(express.static(path.join(__dirname, "client/build")))
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
 const port = process.env.PORT || 5000 
