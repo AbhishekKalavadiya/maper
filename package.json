@@ -8,7 +8,7 @@
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "engines": {
-    "node": "v12.16.3",
+    "node": "12.16.3",
     "npm": "6.14.4"
   },
   "keywords": [],
