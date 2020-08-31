@@ -7,9 +7,16 @@ require('dotenv').config()
 const middlewares  = require('./middleware')
 const entry = require('./api/entryRoute')
 const path = require("path")
+const port = process.env.PORT || 4000 
 
 const app = express()
-const port = process.env.PORT || 4000 
+
+app.use(morgan('common'))
+app.use(helmet())
+app.use(cors())
+app.use(express.json())
+
+// app.use('/', express.static(path.join(__dirname, 'client/build')));
 
 mongoose.connect("mongodb+srv://kalu:abhimk7410@maper.usnux.gcp.mongodb.net/Maper?retryWrites=true&w=majority", {
     useNewUrlParser: true, 
@@ -19,10 +26,6 @@ mongoose.connect("mongodb+srv://kalu:abhimk7410@maper.usnux.gcp.mongodb.net/Mape
         console.log("DB Connected Successfully");
 })
 
-app.use(morgan('common'))
-app.use(helmet())
-app.use(cors())
-app.use(express.json())
 
 app.get('/', (req, res) => {
     res.json({
@@ -33,15 +36,17 @@ app.get('/', (req, res) => {
 app.use('/api/entry', entry)
 app.use('/api/entry/remove/:id', entry)
 app.use('/api/entry/update/:id', entry)
+   
 
 if (process.env.NODE_ENV === 'production') {
-   
-    app.use(express.static(path.join(__dirname, 'client/build')));
-
-    app.get('*', function(req, res) {
-      res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-    });
+    app.use(express.static('client/build'))
+    
+    app.get('*', (req, res) => {
+      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')) 
+    })
   }
+  
+
 
 app.use(middlewares.notFound)
 app.use(middlewares.errorHandler)
