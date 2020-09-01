@@ -203,6 +203,7 @@ function Map() {
                     <div className='map_rightHeader'>
                         <h2>Maper Entry</h2>
                         <small>**Click on map at any location to add entry</small>
+                        <small><strong>*Click on the Location Mark on map for more details..</strong></small>
                     </div>                
                     <hr className='map__rightHr' />
                     <h3>Add your Visited Place</h3>
