@@ -35,7 +35,7 @@ const EntryForm = ({ addEntryLocation, onClose }) => {
             <textarea name='description' rows={3} ref={register}></textarea>
             <label>Image:</label>
             <input name='image' placeholder='add url of the photo' ref={register}/>
-            <label htmlFor='rating'>Rating:</label>
+            <label htmlFor='rating'>Rating:</label><small>*enter the value between 0 to 10</small>
             <input name='rating' ref={register}/>
             <label htmlFor='visitDate'>Vist Date:*</label>
             <input name='visitDate' type='date' required ref={register}/>

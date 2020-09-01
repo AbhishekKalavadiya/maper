@@ -56,7 +56,7 @@ const TotalEntries = ({ totalEntries, onClose }) => {
                             <Typography className='totalEntries__rating'> 
                     
                             { entry.rating === 0 
-                                ? <p ><strong>Rating:{" "} </strong> 0</p> 
+                                ? <p ><strong>Rating:{" "} </strong> 0 </p> 
                                 : <span className='totalEntries__rating'><strong>Rating: </strong>{" "} 
                                     {
                                         Array(entry.rating)

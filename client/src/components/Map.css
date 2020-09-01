@@ -102,6 +102,14 @@
     align-items: center;
 }
 
+/* .map__gl{
+    height: 90vh !important;
+} */
+
+/* .overlays{
+    height: 100vh !important;   
+} */
+
 @media (max-width: 1340px){
     .map__upper{
         flex-direction: column;

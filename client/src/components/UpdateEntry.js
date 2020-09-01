@@ -42,7 +42,7 @@ const UpdateEntry = ({ entry, id, setFlag, setShowButton, onClose }) => {
                     <input name='image' placeholder='add url of the photo' ref={register}/>
                     <div className='updateEntry__rating'>
                         <label htmlFor='rating'>Rating:</label>
-                        <input name='rating' type='number' placeholder={`${entry.rating}  In Range of 0 to 10`} ref={register}/>
+                        <input name='rating' type='number' placeholder={`${entry.rating}`} ref={register}/><small>*enter the value between 0 to 10</small>
                     </div>
                     <div className='updateEntry__date'>
                         <label htmlFor='visitDate'>Visit Date:</label>
