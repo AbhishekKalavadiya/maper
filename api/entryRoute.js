@@ -1,8 +1,6 @@
 const router = require('express').Router()
 const Entry = require('../models/Entry')
 
-const { PASSWORD } = process.env
-
 router.get('/', async (req,res) => {
     try {
         const listEntries = await Entry.find()
@@ -16,7 +14,7 @@ router.get('/', async (req,res) => {
 router.post('/', async (req, res, next) => {
 
     try {
-        if( req.get('X-PASSWORD') !== PASSWORD) {
+        if( req.get('X-PASSWORD') !== (process.env.PASSWORD || 'maper01')) {
             console.log(PASSWORD)
             res.status(401)
             throw new Error('UnAuthorized, enter valid Password Key');
@@ -54,7 +52,7 @@ router.put('/update/:id', async (req,res, next) => {
     const id = req.params.id
 
     try {
-        if( req.get('X-PASSWORD') !== PASSWORD) {
+        if( req.get('X-PASSWORD') !== (precess.env.PASSWORD || 'maper01')) {
             res.status(401)
             throw new Error('UnAuthorized, enter valid Password Key');
         }

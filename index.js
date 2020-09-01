@@ -11,21 +11,20 @@ const port = process.env.PORT || 4000
 
 const app = express()
 
-app.use(morgan('common'))
-app.use(helmet())
-app.use(cors())
-app.use(express.json())
-
 // app.use(express.static(path.join(__dirname, 'client/build')));
 
 mongoose.connect("mongodb+srv://kalu:abhimk7410@maper.usnux.gcp.mongodb.net/Maper?retryWrites=true&w=majority", {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
-    },(err)=>{
+},(err)=>{
         if(err) throw err;
         console.log("DB Connected Successfully");
-})
-
+    })
+    
+app.use(helmet())
+app.use(morgan('common'))
+app.use(cors())
+app.use(express.json())
 
 app.get('/', (req, res) => {
     res.json({
