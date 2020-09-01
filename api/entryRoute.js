@@ -52,7 +52,7 @@ router.put('/update/:id', async (req,res, next) => {
     const id = req.params.id
 
     try {
-        if( req.get('X-PASSWORD') !== (precess.env.PASSWORD || 'maper01')) {
+        if( req.get('X-PASSWORD') !== (process.env.PASSWORD || 'maper01')) {
             res.status(401)
             throw new Error('UnAuthorized, enter valid Password Key');
         }
