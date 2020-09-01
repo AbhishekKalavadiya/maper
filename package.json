@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "engines": {
     "node": "12.16.3",
@@ -20,8 +20,7 @@
     "express": "^4.17.1",
     "helmet": "^4.1.0",
     "mongoose": "^5.10.0",
-    "morgan": "^1.10.0",
-    "path": "^0.12.7"
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
