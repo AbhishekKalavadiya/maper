@@ -16,7 +16,7 @@ app.use(helmet())
 app.use(cors())
 app.use(express.json())
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use('/', express.static(path.join(__dirname, 'client/build')));
 
 mongoose.connect("mongodb+srv://kalu:abhimk7410@maper.usnux.gcp.mongodb.net/Maper?retryWrites=true&w=majority", {
     useNewUrlParser: true, 
