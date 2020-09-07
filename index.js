@@ -13,7 +13,7 @@ const app = express()
 
 // app.use(express.static(path.join(__dirname, 'client/build')));
 
-mongoose.connect("mongodb+srv://kalu:abhimk7410@maper.usnux.gcp.mongodb.net/Maper?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
 },(err)=>{
